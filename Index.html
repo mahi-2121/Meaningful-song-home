@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home by Edward Sharpe & The Magnetic Zeros</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;700&family=Shadows+Into+Light&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Quicksand', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #fef9f3;
+            background-image: radial-gradient(#e1d7c6 1px, transparent 1px);
+            background-size: 20px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: #ff7e5f;
+            background: linear-gradient(135deg, #ff7e5f 0%, #feb47b 100%);
+            color: white;
+            border-radius: 15px;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(255, 126, 95, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+        }
+        
+        h1 {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 3.5rem;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            position: relative;
+            z-index: 1;
+        }
+        
+        .subtitle {
+            font-size: 1.5rem;
+            font-weight: 500;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        
+        @media (max-width: 900px) {
+            .content {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .info-section, .lyrics-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease;
+        }
+        
+        .info-section:hover, .lyrics-section:hover {
+            transform: translateY(-5px);
+        }
+        
+        .info-section {
+            border-top: 5px solid #ff7e5f;
+        }
+        
+        .lyrics-section {
+            border-top: 5px solid #8cc6b5;
+        }
+        
+        .section-title {
+            font-family: 'Shadows Into Light', cursive;
+            font-size: 2rem;
+            margin-bottom: 20px;
+            color: #444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        
+        .section-title i {
+            font-size: 1.8rem;
+        }
+        
+        .song-info {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .info-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.1rem;
+        }
+        
+        .info-item i {
+            color: #ff7e5f;
+            width: 25px;
+        }
+        
+        .song-links {
+            display: flex;
+            gap: 15px;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            padding: 12px 20px;
+            background-color: #ff7e5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 10px rgba(255, 126, 95, 0.3);
+        }
+        
+        .btn:hover {
+            background-color: #e66d50;
+            transform: translateY(-3px);
+            box-shadow: 0 6px 15px rgba(255, 126, 95, 0.4);
+        }
+        
+        .btn-spotify {
+            background-color: #1DB954;
+            box-shadow: 0 4px 10px rgba(29, 185, 84, 0.3);
+        }
+        
+        .btn-spotify:hover {
+            background-color: #1aa34a;
+            box-shadow: 0 6px 15px rgba(29, 185, 84, 0.4);
+        }
+        
+        .meaning-section {
+            background-color: white;
+            border-radius: 15px;
+            padding: 30px;
+            margin-bottom: 40px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            border-top: 5px solid #feb47b;
+        }
+        
+        .meaning-section:hover {
+            transform: translateY(-5px);
+            transition: transform 0.3s ease;
+        }
+        
+        .meaning-text {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .highlight {
+            background-color: rgba(255, 126, 95, 0.1);
+            padding: 3px 8px;
+            border-radius: 5px;
+            font-weight: 700;
+            color: #ff7e5f;
+        }
+        
+        .lyrics-container {
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+        
+        .lyrics-container::-webkit-scrollbar {
+            width: 8px;
+        }
+        
+        .lyrics-container::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .lyrics-container::-webkit-scrollbar-thumb {
+            background: #8cc6b5;
+            border-radius: 10px;
+        }
+        
+        .chorus {
+            color: #ff7e5f;
+            font-weight: 700;
+            margin: 15px 0;
+            padding-left: 15px;
+            border-left: 3px solid #ff7e5f;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 30px;
+            color: #777;
+            font-size: 0.9rem;
+            border-top: 1px solid #e1d7c6;
+            margin-top: 20px;
+        }
+        
+        .album-art {
+            width: 100%;
+            max-width: 300px;
+            border-radius: 10px;
+            margin: 20px auto;
+            display: block;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        @media (max-width: 600px) {
+            h1 {
+                font-size: 2.5rem;
+            }
+            
+            .subtitle {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 1.7rem;
+            }
+            
+            .content, .meaning-section, .info-section, .lyrics-section {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Home</h1>
+            <p class="subtitle">Edward Sharpe & The Magnetic Zeros</p>
+        </header>
+        
+        <div class="content">
+            <div class="info-section">
+                <h2 class="section-title"><i class="fas fa-music"></i> Song Information</h2>
+                
+                <img src="https://images.genius.com/ec0e0a8e4bc22a9cbf48d616fe6864e7.1000x1000x1.jpg" alt="Album cover for 'Home' by Edward Sharpe & The Magnetic Zeros" class="album-art">
+                
+                <div class="song-info">
+                    <div class="info-item">
+                        <i class="fas fa-user"></i>
+                        <span><strong>Artist:</strong> Edward Sharpe & The Magnetic Zeros</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-album"></i>
+                        <span><strong>Album:</strong> Up from Below (2009)</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-calendar-alt"></i>
+                        <span><strong>Released:</strong> 2009</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-clock"></i>
+                        <span><strong>Length:</strong> 5:06</span>
+                    </div>
+                    <div class="info-item">
+                        <i class="fas fa-guitar"></i>
+                        <span><strong>Genre:</strong> Folk Rock, Indie Folk</span>
+                    </div>
+                </div>
+                
+                <h3 class="section-title" style="font-size: 1.5rem;"><i class="fas fa-external-link-alt"></i> Listen to the Song</h3>
+                <div class="song-links">
+                    <a href="https://youtu.be/DHEOF_rcND8" target="_blank" class="btn">
+                        <i class="fab fa-youtube"></i> Listen on YouTube
+                    </a>
+                    <a href="https://open.spotify.com/track/7wYD9Co8r5p5luwG8YtpYd" target="_blank" class="btn btn-spotify">
+                        <i class="fab fa-spotify"></i> Listen on Spotify
+                    </a>
+                </div>
+            </div>
+            
+            <div class="lyrics-section">
+                <h2 class="section-title"><i class="fas fa-quote-right"></i> Lyrics</h2>
+                <div class="lyrics-container">
+                    <p>Alabama, Arkansas<br>
+                    I do love my ma and pa<br>
+                    Not the way that I do love you</p>
+                    
+                    <p>Well, holy moly, me oh my<br>
+                    You're the apple of my eye<br>
+                    Girl, I've never loved one like you</p>
+                    
+                    <div class="chorus">
+                        <p>Ah, home, let me come home<br>
+                        Home is wherever I'm with you<br>
+                        Ah, home, let me come home<br>
+                        Home is wherever I'm with you</p>
+                    </div>
+                    
+                    <p>Georgia, Georgia, the whole day through<br>
+                    Just an old sweet song keeps Georgia on my mind<br>
+                    Georgia, Georgia, a song of you<br>
+                    Comes as sweet and clear as moonlight through the pines</p>
+                    
+                    <div class="chorus">
+                        <p>Ah, home, let me come home<br>
+                        Home is wherever I'm with you<br>
+                        Ah, home, let me come home<br>
+                        Home is wherever I'm with you</p>
+                    </div>
+                    
+                    <p>Well, I'll follow you into the park<br>
+                    Through the jungle, through the dark<br>
+                    Girl, I never loved one like you</p>
+                    
+                    <p>Moats and boats and waterfalls<br>
+                    Alleyways and pay phone calls<br>
+                    I've been everywhere with you</p>
+                    
+                    <div class="chorus">
+                        <p>Ah, home, let me come home<br>
+                        Home is wherever I'm with you<br>
+                        Ah, home, let me come home<br>
+                        Home is wherever I'm with you</p>
+                    </div>
+                    
+                    <p>That's right!<br>
+                    Do you remember that day you fell out of my window?<br>
+                    I sure do, you came jumping out after me<br>
+                    Well, you fell on the concrete<br>
+                    Nearly broke your ass, you were bleeding all over the place<br>
+                    I rushed you out to the hospital, you remember that?<br>
+                    Yes, I do</p>
+                    
+                    <p>Well, there's something I never told you about that night<br>
+                    What didn't you tell me?<br>
+                    While you were sitting in the backseat smoking a cigarette<br>
+                    You thought I didn't notice, but I did</p>
+                    
+                    <div class="chorus">
+                        <p>Ah, home, let me come home<br>
+                        Home is wherever I'm with you<br>
+                        Ah, home, let me come home<br>
+                        Home is wherever I'm with you</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="meaning-section">
+            <h2 class="section-title"><i class="fas fa-heart"></i> Why This Song Matters to Me</h2>
+            <div class="meaning-text">
+                <p>"Home" by Edward Sharpe & The Magnetic Zeros holds a special place in my heart because it captures the essence of what <span class="highlight">true connection</span> feels like. In a world that often defines "home" as a physical place, this song beautifully redefines it as being with the person you love.</p>
+                
+                <p>The playful, conversational interlude in the middle of the song reminds me of the <span class="highlight">imperfect, authentic moments</span> that make relationships real. It's not about grand gestures but about shared memories, even the clumsy ones.</p>
+                
+                <p>Whenever I hear this song, it reminds me that home isn't four walls and a roof—it's the feeling of <span class="highlight">belonging and comfort</span> we create with the people we love. The folksy, joyful instrumentation and the raw, earnest vocals make it impossible not to smile and feel that warmth.</p>
+                
+                <p>During times when I've been far from my family or feeling disconnected, "Home" has been a musical reminder that <span class="highlight">connection transcends distance</span>. It's a celebration of love in its simplest, purest form, and that's a message I carry with me every day.</p>
+            </div>
+        </div>
+        
+        <footer>
+            <p>Created for Weekly Challenge: Most Meaningful Song | Week 1: HTML + CSS</p>
+            <p>Song: "Home" by Edward Sharpe & The Magnetic Zeros</p>
+            <p>© 2025 | Made with <i class="fas fa-heart" style="color: #ff7e5f;"></i> for music lovers everywhere</p>
+        </footer>
+    </div>
+    
+    <script>
+        // Simple animation for section titles on scroll
+        document.addEventListener('DOMContentLoaded', function() {
+            const sections = document.querySelectorAll('.info-section, .lyrics-section, .meaning-section');
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.style.opacity = '1';
+                        entry.target.style.transform = 'translateY(0)';
+                    }
+                });
+            }, { threshold: 0.1 });
+            
+            sections.forEach(section => {
+                section.style.opacity = '0.7';
+                section.style.transform = 'translateY(20px)';
+                section.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+                observer.observe(section);
+            });
+            
+            // Add a simple hover effect to the header
+            const header = document.querySelector('header');
+            header.addEventListener('mouseenter', function() {
+                this.style.transform = 'scale(1.01)';
+                this.style.transition = 'transform 0.3s ease';
+            });
+            
+            header.addEventListener('mouseleave', function() {
+                this.style.transform = 'scale(1)';
+            });
+            
+            // Make sure links work on mobile
+            document.querySelectorAll('a').forEach(link => {
+                link.addEventListener('click', function(e) {
+                    if(this.getAttribute('href').startsWith('http')) {
+                        // Allow link to open normally
+                        console.log('Opening link:', this.getAttribute('href'));
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
